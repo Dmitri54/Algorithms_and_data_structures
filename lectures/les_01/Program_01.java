@@ -2,6 +2,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Program_01 {
 
@@ -26,7 +27,7 @@ public class Program_01 {
     public static List<Integer>  findAvalibleDivider(int number) {
         int counter = 0;
         List<Integer> result = new ArrayList<>();
-        for (int = 1; i < number; i++){
+        for (int i = 1; i < number; i++){
             if (number % i == 0){
                 result.add(i);
             }
