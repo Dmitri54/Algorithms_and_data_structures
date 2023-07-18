@@ -66,10 +66,10 @@ public class Program_01 {
     public static void bubbleStort(int[] array){ // Квадратная сложность - O(n^2).
         for (int k = 0; k < array.length - 1; k++) { // Повтор алгоритма перемещениея.
             for (int i = 0; i < array.length - 1; i++) { // Тут само перемещение элемента.
-                    if (array[i] > array[i + 1]) {
-                        int temp = array[i];
-                        array[i] = array[i + 1];
-                        array[i + 1] = temp;
+                if (array[i] > array[i + 1]) {
+                    int temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
                 }              
             }           
         }
@@ -82,19 +82,41 @@ public class Program_01 {
         int length = array.length - 1; //  Убрал повторную проверку элемента.
         for (int k = 0; k < array.length - 1; k++) { 
             for (int i = 0; i < array.length - 1; i++) { 
-                    if (array[i] > array[i + 1]) {
-                        int temp = array[i];
-                        array[i] = array[i + 1];
-                        array[i + 1] = temp;
+                if (array[i] > array[i + 1]) {
+                    int temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
                 }              
-            }           
+            }
+            length--; // Сократил длинну списка на один последний элемент, при каждом следующем шаге.           
         }
-        length--; // Сократил длинну списка на один последний элемент, при каждом следующем шаге.
+        
     }
     // Сложность получается ниже: 
     // O(n * (n - 1) / 2)
     // Если раскрыть и убрать 2, т.к. константа у нас не учитывается при подсчете сложностей.
-    // O(n^2 - n)  -- получается вот так.
+    // O(n^2 - n)   - получается вот так и надо не забывать, что все делиться на 2.
+
+// -----------------------------------------------------------------------------------------------
+// Можно ещё оптимизировать, ускорев работу bubbleStort2.
+
+    public static void bubbleStort3(int[] array){ 
+        int length = array.length - 1; 
+        boolean flag = true; // Ограничет проверку уже отсортированного массива. 
+        for (int k = 0; k < array.length - 1; k++) { 
+            flag = false;
+            for (int i = 0; i < array.length - 1; i++) { 
+                if (array[i] > array[i + 1]) {
+                    int temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
+                }              
+            }           
+        }
+        length--; // Сократил длинну списка на один последний элемент, при каждом следующем шаге.
+    }  
+
+
 }
 
 
