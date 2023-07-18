@@ -41,9 +41,16 @@ import java.util.Random;
 public class Program_01 {
     public static void main (String[] args){
 
-        int [] array = new int [1000];
+        int [] array = new int [10000];
         for (int i = 0; i < array.length; i++) 
             array[i] = new Random().nextInt(100);
+
+// Создал массив array2, чтобы проверить работоспособность функции bubbleStort3,
+// т.к. array получался уже отсортированным, ответ был 0, что не верно.
+
+        int [] array2 = new int [1000];
+        for (int i = 0; i < array2.length; i++) 
+            array2[i] = new Random().nextInt(100);
 
         long timeStart1 = System.currentTimeMillis(); 
         bubbleStort(array);
@@ -53,10 +60,15 @@ public class Program_01 {
         bubbleStort2(array);
         long timeEnd2 = System.currentTimeMillis(); 
 
+        long timeStart3 = System.currentTimeMillis(); 
+        bubbleStort3(array2);
+        long timeEnd3 = System.currentTimeMillis(); 
+
         System.out.println(timeEnd1 - timeStart1);
         System.out.println(timeEnd2 - timeStart2);
+        System.out.println(timeEnd3 - timeStart3);
 
-        // for (int i : array)
+        // for (int i : array) // Актуально при рассмотрении функции bubbleStort.
         //     System.out.print(i + " ");
         
     }
@@ -103,17 +115,19 @@ public class Program_01 {
     public static void bubbleStort3(int[] array){ 
         int length = array.length - 1; 
         boolean flag = true; // Ограничет проверку уже отсортированного массива. 
-        for (int k = 0; k < array.length - 1; k++) { 
+        for (int k = 0; k < array.length - 1 && flag; k++) { 
             flag = false;
             for (int i = 0; i < array.length - 1; i++) { 
                 if (array[i] > array[i + 1]) {
+                    flag = true;
                     int temp = array[i];
                     array[i] = array[i + 1];
                     array[i + 1] = temp;
                 }              
-            }           
+            }
+            length--;          
         }
-        length--; // Сократил длинну списка на один последний элемент, при каждом следующем шаге.
+        
     }  
 
 
