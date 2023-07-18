@@ -45,10 +45,19 @@ public class Program_01 {
         for (int i = 0; i < array.length; i++) 
             array[i] = new Random().nextInt(100);
 
+        long timeStart1 = System.currentTimeMillis(); 
         bubbleStort(array);
-        
-        for (int i : array)
-            System.out.println(i + " ");
+        long timeEnd1 = System.currentTimeMillis(); 
+
+        long timeStart2 = System.currentTimeMillis(); 
+        bubbleStort2(array);
+        long timeEnd2 = System.currentTimeMillis(); 
+
+        System.out.println(timeEnd1 - timeStart1);
+        System.out.println(timeEnd2 - timeStart2);
+
+        // for (int i : array)
+        //     System.out.print(i + " ");
         
     }
 
@@ -65,7 +74,27 @@ public class Program_01 {
             }           
         }
     }
-    
+
+    // Как изменить количество шагов, чтобы функция bubbleStort работала быстрее?
+    // Оптимизирую 
+
+    public static void bubbleStort2(int[] array){ 
+        int length = array.length - 1; //  Убрал повторную проверку элемента.
+        for (int k = 0; k < array.length - 1; k++) { 
+            for (int i = 0; i < array.length - 1; i++) { 
+                    if (array[i] > array[i + 1]) {
+                        int temp = array[i];
+                        array[i] = array[i + 1];
+                        array[i + 1] = temp;
+                }              
+            }           
+        }
+        length--; // Сократил длинну списка на один последний элемент, при каждом следующем шаге.
+    }
+    // Сложность получается ниже: 
+    // O(n * (n - 1) / 2)
+    // Если раскрыть и убрать 2, т.к. константа у нас не учитывается при подсчете сложностей.
+    // O(n^2 - n)  -- получается вот так.
 }
 
 
