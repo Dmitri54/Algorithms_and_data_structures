@@ -48,13 +48,13 @@ public class Program_01 {
 // Создал массив array2, чтобы проверить работоспособность функции bubbleStort3,
 // т.к. array получался уже отсортированным, ответ был 0, что не верно.
 
-        int [] array2 = new int [1000];
+        int [] array2 = new int [10000];
         for (int i = 0; i < array2.length; i++) 
             array2[i] = new Random().nextInt(100);
 
-        long timeStart1 = System.currentTimeMillis(); 
-        bubbleStort(array);
-        long timeEnd1 = System.currentTimeMillis(); 
+        // long timeStart1 = System.currentTimeMillis(); 
+        // bubbleStort(array);
+        // long timeEnd1 = System.currentTimeMillis(); 
 
         long timeStart2 = System.currentTimeMillis(); 
         bubbleStort2(array);
@@ -64,7 +64,7 @@ public class Program_01 {
         bubbleStort3(array2);
         long timeEnd3 = System.currentTimeMillis(); 
 
-        System.out.println(timeEnd1 - timeStart1);
+        // System.out.println(timeEnd1 - timeStart1);
         System.out.println(timeEnd2 - timeStart2);
         System.out.println(timeEnd3 - timeStart3);
 
@@ -126,10 +126,10 @@ public class Program_01 {
                 }              
             }
             length--;          
-        }
-        
-    }  
-
+        } 
+    }
+// Но в расчете сложности работа flag не будет учитываться, 
+// т.к. при расчете сложности берется самым худжий вариант растановки элементов.
 
 }
 
