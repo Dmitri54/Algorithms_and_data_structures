@@ -248,7 +248,7 @@ public class Program_01 {
     public static void main (String[] args){
 
         Car car1 = new Car(); // Создание экземпляра класса Car, при помощи конструктора new.
-        car1.engine = new Engine();
+        // car1.engine = new Engine(); // Убрал, т.к. прописал в классе Car.
         car1.name = "Moskvich";
         car1.seats = 5;
         // car1.tank = 40;
@@ -257,7 +257,7 @@ public class Program_01 {
         car1.engine.force = 100;
 
         Car car2 = new Car(); 
-        car2.engine = new Engine();
+        // car2.engine = new Engine();
         car2.name = "BMW";
         car2.seats = 2;
         // car2.tank = 30;
