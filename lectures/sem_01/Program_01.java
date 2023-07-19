@@ -137,13 +137,25 @@ import java.util.Random;
 
 public class Program_01 {
     public static void main (String[] args){
-        int a = 20;
+        int a = 4;
 
         long startTime1 = System.nanoTime();
         System.out.println(fib(a));
         long endTime1 = System.nanoTime();
 
         System.out.println("Time:" + (endTime1 - startTime1));
+
+        long startTime2 = System.nanoTime();
+        System.out.println(fib2(a, 0, 1));
+        long endTime2 = System.nanoTime();
+
+        System.out.println("Time2:" + (endTime2 - startTime2));
+
+        long startTime3 = System.nanoTime();
+        System.out.println(fib3(a));
+        long endTime3 = System.nanoTime();
+
+        System.out.println("Time2:" + (endTime3 - startTime3));
 
     }
 
@@ -156,9 +168,57 @@ public class Program_01 {
             return 1;
         return fib(n - 1) + fib(n - 2);
     }
+// Она не эффективна, потому что, много повторов и много запусков рекурсии.
+// ------------------------------------------------------------------------------------------------
+
+    // public static int fib2(int n, int left, int right){ // Прямая рекурсия.
+    //     if (n <= 0)
+    //         return -1;
+    //     if (n == 1)
+    //         return 0;
+    //     if (n <= 2)
+    //         return 1;
+    //     if (n <= 2)
+    //         return right;
+    //     return fib2(n - 1, right, left + right);
+    // }
+
+// Можно сделать перегрузку.
+
+    public static int fib2(int n){ 
+        if (n <= 0)
+            return -1;
+        if (n == 1)
+            return 0;
+        if (n <= 3)
+            return 1;
+        return fib2(n, 0, 1);
+    }
+
+    public static int fib2(int n, int left, int right){
+        if (n <= 2)
+            return right;
+        return fib2(n - 1, right, left + right);
+    }
+
+// ===============================================================================
+// Рекурсия через цикл ровна по сложности. O(n)
+// Цикл быстрее рекурсии.
+
+    public static int fib3(int n){
+        int left = 0;
+        int right = 1;
+        if (n <= 0)
+            return -1;
+        if (n == 1)
+            return 0;
+        for (int i = 2; i < n; i++) {
+            right = left + right;
+            left = right - left;
+        }
+        return right;
+    }
 }
-
-
 
 
 
