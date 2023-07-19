@@ -139,24 +139,42 @@ public class Program_01 {
     public static void main (String[] args){
         int a = 4;
 
-        long startTime1 = System.nanoTime();
-        System.out.println(fib(a));
-        long endTime1 = System.nanoTime();
+        // long startTime1 = System.nanoTime();
+        // System.out.println(fib(a));
+        // long endTime1 = System.nanoTime();
 
-        System.out.println("Time:" + (endTime1 - startTime1));
+        // System.out.println("Time:" + (endTime1 - startTime1));
+
+        // long startTime2 = System.nanoTime();
+        // System.out.println(fib2(a, 0, 1));
+        // long endTime2 = System.nanoTime();
+
+        // System.out.println("Time2:" + (endTime2 - startTime2));
+
+        // long startTime3 = System.nanoTime();
+        // System.out.println(fib3(a));
+        // long endTime3 = System.nanoTime();
+
+        // System.out.println("Time2:" + (endTime3 - startTime3));
+// ---------------------------------------------------------------------------------------
+// Для большей точности, при проверки скорости работы алгоритма, лучше прогонять его несколько раз.
 
         long startTime2 = System.nanoTime();
-        System.out.println(fib2(a, 0, 1));
+        for (int i = 0; i < 100; i++) { // делаю запуск 100 раз
+            fib2(a);
+        }
         long endTime2 = System.nanoTime();
-
-        System.out.println("Time2:" + (endTime2 - startTime2));
+        long time2 = (endTime2 - startTime2) / 100; // Получаю среднее время.
 
         long startTime3 = System.nanoTime();
-        System.out.println(fib3(a));
+        for (int i = 0; i < 100; i++) {
+            fib3(a);
+        }
         long endTime3 = System.nanoTime();
+        long time3 = (endTime3 - startTime3) / 100;
 
-        System.out.println("Time2:" + (endTime3 - startTime3));
-
+        System.out.println("Time2:" + (time2));
+        System.out.println("Time3:" + (time3));
     }
 
     public static int fib(int n){ // Стандартная рекурсия для Фибоначи, но она медленная.
@@ -201,7 +219,7 @@ public class Program_01 {
         return fib2(n - 1, right, left + right);
     }
 
-// ===============================================================================
+// ------------------------------------------------------------------------------------------------
 // Рекурсия через цикл ровна по сложности. O(n)
 // Цикл быстрее рекурсии.
 
@@ -219,9 +237,13 @@ public class Program_01 {
         return right;
     }
 }
+// =================================================================================================
 
+// public class Program_01 {
+//     public static void main (String[] args){
 
-
+//     }
+// }
 
 /**
  * Задача 1. 
