@@ -243,7 +243,6 @@ import java.util.Random;
 // }
 // =================================================================================================
 // Класс
-import lectures.sem_01.Car;
 
 public class Program_01 {
     public static void main (String[] args){
