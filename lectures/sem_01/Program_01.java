@@ -242,19 +242,54 @@ import java.util.Random;
 //     }
 // }
 // =================================================================================================
-// Классы
+// Класс
 
 public class Program_01 {
     public static void main (String[] args){
 
+        Car car1 = new Car(); // Создание экземпляра класса Car, при помощи конструктора new.
+        car1.name = "Moskvich";
+        car1.seats = 5;
+        car1.tank = 40;
+
+        Car car2 = new Car(); 
+        car2.name = "BMW";
+        car2.seats = 2;
+        car2.tank = 30;
+
+        car1.print(); // Чтобы сделать вывод пишу имя элемента и через точку вызов метода.
+        car1.selfDestroy(); // Что придумаю, то и могу использовать )))
+        car1.print();
+        car2.print();
+
+        // System.out.println(car1.name);
+        // System.out.println("seats: " + car1.seats);
+        // System.out.println("Engine: " + car1.tank + "L");
+
+        // System.out.println(car2.name);
+        // System.out.println("seats: " + car2.seats);
+        // System.out.println("Engine: " + car2.tank + "L");
+// Если нужно вывести 1 - 2 раза, то хорошо, а если 1000 раз, то нужно создать метод в нутри класса Car.
         
+    }
+
+    static class Car { // Класс - просто описывает объект
+        // Поле класса:
+        String name; 
+        double tank; // Объём бака
+        int seats; // Количество мест
+
+        void print(){ // Метод позволит сделать вывод нужно количество раз. Так код короче!
+            System.out.println(name);
+            System.out.println("seats: " + seats);
+            System.out.println("Engine: " + tank + "L");
+        }
+
+        void selfDestroy() { // Просто пример метода, удаления информации.
+            name = null;
+            tank = 0;
+            seats = 0;
+        }
     }
 }
 
-/**
- * Задача 1. 
- * Необходимо написать алгоритм, считающий сумму всех чисел
- * от 1 до N. Согласно свойствам линейной сложности,
- * количество итераций цикла будет линейно изменяться
- * относительно изменения размера N.
- */
