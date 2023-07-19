@@ -289,7 +289,14 @@ public class Program_01 {
 
         Engine engine; // Создал внутри класса Car экзкмпляр класса Engine.
 
+        Car() { // Конструктор!!!
+            name = ""; // Тут можно задать значения по умолчанию
+            seats = 5;
+            engine = new Engine(); // И вызвать создание экземпляра другово класса.
+        }
+
         void print(){ // Метод позволит сделать вывод нужно количество раз. Так код короче!
+
             System.out.println(name);
             System.out.println("seats: " + seats);
             engine.print();
