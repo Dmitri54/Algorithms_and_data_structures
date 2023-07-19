@@ -142,6 +142,9 @@ public class Program_01 {
         long startTime1 = System.nanoTime();
         System.out.println(fib(a));
         long endTime1 = System.nanoTime();
+
+        System.out.println("Time:" + (endTime1 - startTime1));
+
     }
 
     public static int fib(int n){ // Стандартная рекурсия для Фибоначи, но она медленная.
