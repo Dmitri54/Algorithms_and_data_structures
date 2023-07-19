@@ -243,6 +243,7 @@ import java.util.Random;
 // }
 // =================================================================================================
 // Класс
+import lectures.sem_01.Car;
 
 public class Program_01 {
     public static void main (String[] args){
@@ -287,74 +288,75 @@ public class Program_01 {
         
     }
 
-    static class Car { // Класс - просто описывает объект
-        // Поле класса:
-        public String name; 
-        // double tank; // Объём бака
+//     static class Car { // Класс - просто описывает объект
+//         // Поле класса:
+//         public String name; 
+//         // double tank; // Объём бака
 
-// Инкапсуляция - это предоставление или не предоставление доступа другим классам.
-// public - доступен везде.
-// private - доступен только внутри класса, где создан.
+// // Инкапсуляция - это предоставление или не предоставление доступа другим классам.
+// // public - доступен везде.
+// // private - доступен только внутри класса, где создан.
+// // Чтобы она работала, нужно создавать отдельный фаил.
 
-        private int seats; // Количество мест
+//         private int seats; // Количество мест
 
-        public Engine engine; // Создал внутри класса Car экзкмпляр класса Engine.
+//         public Engine engine; // Создал внутри класса Car экзкмпляр класса Engine.
 
-        public Car() { // Конструктор!!!
-            name = ""; // Тут можно задать значения по умолчанию
-            seats = 5;
-            engine = new Engine(); // И вызвать создание экземпляра другово класса.
-        }
+//         public Car() { // Конструктор!!!
+//             name = ""; // Тут можно задать значения по умолчанию
+//             seats = 5;
+//             engine = new Engine(); // И вызвать создание экземпляра другово класса.
+//         }
 
-        public Car (String _name, int _seats){
-            name = _name;
-            seats = _seats;
-            engine = new Engine();
-        }
+//         public Car (String _name, int _seats){
+//             name = _name;
+//             seats = _seats;
+//             engine = new Engine();
+//         }
 
-        public void print(){ // Метод позволит сделать вывод нужно количество раз. Так код короче!
+//         public void print(){ // Метод позволит сделать вывод нужно количество раз. Так код короче!
 
-            System.out.println(name);
-            System.out.println("seats: " + seats);
-            engine.print();
-            // System.out.println("Engine: ");
-            // System.out.println("V: " + engine.V);
-            // System.out.println("Tank: " + engine.tank + "L");
-            // System.out.println(engine.force + "hp");
-        }
+//             System.out.println(name);
+//             System.out.println("seats: " + seats);
+//             engine.print();
+//             // System.out.println("Engine: ");
+//             // System.out.println("V: " + engine.V);
+//             // System.out.println("Tank: " + engine.tank + "L");
+//             // System.out.println(engine.force + "hp");
+//         }
 
-        // void selfDestroy() { // Просто пример метода, удаления информации.
-        //     name = null;
-        //     tank = 0;
-        //     seats = 0;
-        // }
+//         // void selfDestroy() { // Просто пример метода, удаления информации.
+//         //     name = null;
+//         //     tank = 0;
+//         //     seats = 0;
+//         // }
 
-    }
+//     }
 
-    static class Engine{ // Создал отдельный класс Двигатель
-        double tank; // Объём бака
-        int V; // Количество цилиндров
-        int force; // Сила
-        boolean wasForcing; // Форсируется или нет
+//     static class Engine{ // Создал отдельный класс Двигатель
+//         double tank; // Объём бака
+//         int V; // Количество цилиндров
+//         int force; // Сила
+//         boolean wasForcing; // Форсируется или нет
 
-        void forcingEngine(){
-            if (wasForcing)
-                return;
-            wasForcing = true;
-            force *= 1.2;
-        }
+//         void forcingEngine(){
+//             if (wasForcing)
+//                 return;
+//             wasForcing = true;
+//             force *= 1.2;
+//         }
 
-        void print () {
-            System.out.print("Engine: ");
-            System.out.print("V: " + V);
-            System.out.print(", : " + tank + "L, ");
-            System.out.print(force + "hp");
-            if (wasForcing)
-                System.out.print(" engine was forced");
-            else
-                System.out.print(" engine not forced");
-            System.out.println();
-        }
-    }
+//         void print () {
+//             System.out.print("Engine: ");
+//             System.out.print("V: " + V);
+//             System.out.print(", : " + tank + "L, ");
+//             System.out.print(force + "hp");
+//             if (wasForcing)
+//                 System.out.print(" engine was forced");
+//             else
+//                 System.out.print(" engine not forced");
+//             System.out.println();
+//         }
+    // }
 }
 
