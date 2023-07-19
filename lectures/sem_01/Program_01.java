@@ -265,10 +265,16 @@ public class Program_01 {
         car2.engine.V = 5;
         car2.engine.force = 200;
 
+        Car car3 = new Car("Volvo", 4);
+        car3.engine.tank = 35;
+        car3.engine.V = 6;
+        car3.engine.force = 260;
+
         car1.print(); // Чтобы сделать вывод пишу имя элемента и через точку вызов метода.
         // car1.selfDestroy(); // Что придумаю, то и могу использовать )))
         car1.print();
         car2.print();
+        car3.print();
 
         // System.out.println(car1.name);
         // System.out.println("seats: " + car1.seats);
@@ -283,19 +289,30 @@ public class Program_01 {
 
     static class Car { // Класс - просто описывает объект
         // Поле класса:
-        String name; 
+        public String name; 
         // double tank; // Объём бака
-        int seats; // Количество мест
 
-        Engine engine; // Создал внутри класса Car экзкмпляр класса Engine.
+// Инкапсуляция - это предоставление или не предоставление доступа другим классам.
+// public - доступен везде.
+// private - доступен только внутри класса, где создан.
 
-        Car() { // Конструктор!!!
+        private int seats; // Количество мест
+
+        public Engine engine; // Создал внутри класса Car экзкмпляр класса Engine.
+
+        public Car() { // Конструктор!!!
             name = ""; // Тут можно задать значения по умолчанию
             seats = 5;
             engine = new Engine(); // И вызвать создание экземпляра другово класса.
         }
 
-        void print(){ // Метод позволит сделать вывод нужно количество раз. Так код короче!
+        public Car (String _name, int _seats){
+            name = _name;
+            seats = _seats;
+            engine = new Engine();
+        }
+
+        public void print(){ // Метод позволит сделать вывод нужно количество раз. Так код короче!
 
             System.out.println(name);
             System.out.println("seats: " + seats);
