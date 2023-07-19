@@ -248,17 +248,25 @@ public class Program_01 {
     public static void main (String[] args){
 
         Car car1 = new Car(); // Создание экземпляра класса Car, при помощи конструктора new.
+        car1.engine = new Engine();
         car1.name = "Moskvich";
         car1.seats = 5;
-        car1.tank = 40;
+        // car1.tank = 40;
+        car1.engine.tank = 40;
+        car1.engine.V = 4;
+        car1.engine.force = 100;
 
         Car car2 = new Car(); 
+        car2.engine = new Engine();
         car2.name = "BMW";
         car2.seats = 2;
-        car2.tank = 30;
+        // car2.tank = 30;
+        car2.engine.tank = 30;
+        car2.engine.V = 5;
+        car2.engine.force = 200;
 
         car1.print(); // Чтобы сделать вывод пишу имя элемента и через точку вызов метода.
-        car1.selfDestroy(); // Что придумаю, то и могу использовать )))
+        // car1.selfDestroy(); // Что придумаю, то и могу использовать )))
         car1.print();
         car2.print();
 
@@ -276,19 +284,52 @@ public class Program_01 {
     static class Car { // Класс - просто описывает объект
         // Поле класса:
         String name; 
-        double tank; // Объём бака
+        // double tank; // Объём бака
         int seats; // Количество мест
+
+        Engine engine; // Создал внутри класса Car экзкмпляр класса Engine.
 
         void print(){ // Метод позволит сделать вывод нужно количество раз. Так код короче!
             System.out.println(name);
             System.out.println("seats: " + seats);
-            System.out.println("Engine: " + tank + "L");
+            engine.print();
+            // System.out.println("Engine: ");
+            // System.out.println("V: " + engine.V);
+            // System.out.println("Tank: " + engine.tank + "L");
+            // System.out.println(engine.force + "hp");
         }
 
-        void selfDestroy() { // Просто пример метода, удаления информации.
-            name = null;
-            tank = 0;
-            seats = 0;
+        // void selfDestroy() { // Просто пример метода, удаления информации.
+        //     name = null;
+        //     tank = 0;
+        //     seats = 0;
+        // }
+
+    }
+
+    static class Engine{ // Создал отдельный класс Двигатель
+        double tank; // Объём бака
+        int V; // Количество цилиндров
+        int force; // Сила
+        boolean wasForcing; // Форсируется или нет
+
+        void forcingEngine(){
+            if (wasForcing)
+                return;
+            wasForcing = true;
+            force *= 1.2;
+        }
+
+        void print () {
+            System.out.print("Engine: ");
+            System.out.print("V: " + V);
+            System.out.print(", : " + tank + "L, ");
+            System.out.print(force + "hp");
+            if (wasForcing)
+                System.out.print(" engine was forced");
+            else
+                System.out.print(" engine not forced");
+            System.out.println();
         }
     }
 }
