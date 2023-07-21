@@ -14,10 +14,15 @@ public class Find {
         };
 
         // System.out.println(find(array, 5));
-        System.out.println(binarySearch(array, 5, 0, array.length -1));
+        // System.out.println(binarySearch(array, 5, 0, array.length -1));
+        System.out.println(binarySearch(array, 5));
 
     }
 
+    public static int binarySearch(int[] array, int value) {// Перегрузка функции.
+        return binarySearch(array, value, 0, array.length - 1); // Чтобы не писать в месте вызова длинную функцию.
+        
+    }
     public static int binarySearch(int[] array, int value, int min, int max){ // Алгоритм бинарного поиска
         int midpoint;
         if (max < min){ // Делаю проверку.
