@@ -117,7 +117,7 @@ public class Sort {
     public static void insertSort(int[] array){ // Сортировка вставками
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = i + 1; j < array.length; j++) {
-                if (array[i] > array[j]){
+                if (array[i] > array[j]){ // Если больше меняю местами.
                     int temp = array[i];
                     array[i] = array[j];
                     array[j] = temp;
