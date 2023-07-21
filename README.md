@@ -190,3 +190,4 @@ array[3]  array[4]  array[5]  array[6]
   /  \    -->   /  \
 13    15      13    10
 
+Пример: HeapSort.java
