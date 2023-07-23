@@ -1,5 +1,7 @@
 // Урок 2. Структуры данных. Массивы. Алгоритмы массивов.
 // =======================================================================================
+// Пузырьковая сортировка (Будет быстрее всех если значений не много).
+// Быстрая сортировка.
 // Пирамидальная сортировка (Сортировка кучей).
 
 package lectures.sem_02;
@@ -12,9 +14,11 @@ public class Program {
     public static void main(String[] args){
         int[] array = new int[10];
         int[] array2 = new int[array.length];
+        int[] array3 = new int[array.length];
         randomizeArray(array, 100); 
 
         System.arraycopy(array, 0, array2, 0, array2.length);
+        System.arraycopy(array, 0, array3, 0, array3.length);
         // print(array);   
         // heapSort(array);
         // print(array2);
@@ -26,9 +30,28 @@ public class Program {
         long heap1 = System.nanoTime();
         heapSort(array2);
         long heap2 = System.nanoTime();
+
+        long bubble1 = System.nanoTime();
+        bubbleSort(array3);
+        long bubble2 = System.nanoTime();
         
-        System.out.println(quick2 - quick1);
-        System.out.println(heap2 - heap1);
+        System.out.println("quickSort " + (quick2 - quick1));
+        System.out.println("heapSort " + (heap2 - heap1));
+        System.out.println("bubbleSort " + (bubble2 - bubble1));
+    }
+
+    public static void bubbleSort(int[] array){ // Пузырьковая сортировка
+        int length = array.length -1;
+        for (int k = 0; k < array.length - 1; k++) {
+            for (int i = 0; i < length; i++) {
+                if (array[i] > array[i + 1]){
+                    int temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
+                }
+                length--;
+            }
+        }
     }
 
     public static void quickSort(int[] array){ // Быстрая сортировка
