@@ -12,14 +12,23 @@ public class Program {
     public static void main(String[] args){
         int[] array = new int[10];
         int[] array2 = new int[array.length];
-        randomizeArray(array, 10); 
+        randomizeArray(array, 100); 
 
         System.arraycopy(array, 0, array2, 0, array2.length);
         // print(array);   
         // heapSort(array);
-        print(array2);
-        quickSort(array2);
-        print(array2);
+        // print(array2);
+
+        long quick1 = System.nanoTime();
+        quickSort(array);
+        long quick2 = System.nanoTime();
+        
+        long heap1 = System.nanoTime();
+        heapSort(array2);
+        long heap2 = System.nanoTime();
+        
+        System.out.println(quick2 - quick1);
+        System.out.println(heap2 - heap1);
     }
 
     public static void quickSort(int[] array){ // Быстрая сортировка
