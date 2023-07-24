@@ -69,6 +69,24 @@ public class Program {
         }
         return null;
     } 
+
+    // Разворот 
+    public void revert(){
+        Node currentNode = head;
+        while (currentNode != null){
+            Node next = currentNode.next;
+            Node previous = currentNode.previous;
+            // меняю местами значения
+            currentNode.previous = next;
+            if (previous == null){
+                tail = currentNode;
+            }
+            if (next == null){
+                head = currentNode;
+            }
+            currentNode = next;
+        }
+    }
     
     public class Node{ // Узел (Node)
         int value;
