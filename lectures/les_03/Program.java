@@ -6,7 +6,7 @@ package lectures.les_03;
 
 public class Program {
     Node head; // Начало списка
-    // Node tail; // Ссылка на последний элемент списка. Нет в односвязанном списке.
+    Node tail; // Ссылка на последний элемент списка. Нет в односвязанном списке.
     
     // // Добавление элемента в конец связанного списока.
     // public void add(int value){
@@ -88,12 +88,23 @@ public class Program {
     //     }
     // }
 
-    // Стек
+    // Стек и очередь
     public void push(int value){
         Node node = new Node();
         node.value = value;
         node.next = head;
+        head.previous = node;
         head = node;
+    }
+
+    public Integer pip(){ // Добавление элемента в самое начало, для двусвязанного списка.
+        Integer result = null;
+        if (tail != null){
+            result = tail.value;
+            tail.previous.next = null;
+            tail = tail.previous;
+        }
+        return result;
     }
 
     public Integer pop(){ // Извлечение элемента из односвязанного списка.
