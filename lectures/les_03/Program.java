@@ -88,6 +88,23 @@ public class Program {
     //     }
     // }
 
+    // Стек
+    public void push(int value){
+        Node node = new Node();
+        node.value = value;
+        node.next = head;
+        head = node;
+    }
+
+    public Integer pop(){ // Извлечение элемента из односвязанного списка.
+        Integer result = null;
+        if (head != null){
+            result = head.value;
+            head = head.next;
+        }
+        return result;
+    }
+
     public void revert(){
         if (head != null && head.next != null){
             Node temp = head;
