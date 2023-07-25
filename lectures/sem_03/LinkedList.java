@@ -17,6 +17,28 @@ public class LinkedList { // Связанный список
         currentNode.next = new Node(value); // Записываю новую Node, т.е. ссылку на последний злемент.
         size++;
     }
+// Удаление по значению
+    public boolean remove(int value){
+        if (root == null) // Если равен нулю возвращаю false.
+            return false; 
+        if (root.value == value){ // Если нужно удалить первый элемент
+            root = root.next; // Перезаписываю значение root на ссылку следующего элемента.
+            size--;
+            return true;
+        }
+        Node currentNode = root; // Создаю переменную со ссылкой на первый элемент.
+        while (currentNode.next != null){ // При удалении элемента в середине списка
+            if (currentNode.next.value == value) { // Если значение найдено, то в следующую Node
+                currentNode.next = currentNode.next.next; // записываю значение после следующего.
+                size--;
+                return true;
+            }
+            currentNode = currentNode.next; // Если не нашел элемент перехожу к следующему.
+        }
+        return false; // Если значение так и не было найдено.
+        
+    }
+
 // Метод для вывода в консоль
     public void print(){ 
         System.out.print("[ ");

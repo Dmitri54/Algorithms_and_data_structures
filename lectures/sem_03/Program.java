@@ -17,6 +17,9 @@ public class Program {
         list.add(4);
 
         list.print(); // [ 5 8 1 7 2 4 ] size: 6
+        list.remove(1);
+        list.print(); // [ 5 8 7 2 4 ] size: 5
+        
     }
     
 }
