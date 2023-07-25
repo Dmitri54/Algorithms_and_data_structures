@@ -7,6 +7,7 @@ package lectures.sem_03;
 public class Program {
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
+        
         list.print();
 
         list.add(5);
@@ -17,6 +18,8 @@ public class Program {
         list.add(7);
         list.add(5);
         list.add(5);
+
+        LinkedList list2 = list.copyList();
 
         list.print(); // [ 5 8 1 7 2 4 ] size: 6
         list.remove(1);
@@ -32,6 +35,9 @@ public class Program {
         int n = list.removeAll(5);
         list.print();
         System.out.println(n);
+        
+        System.out.print("list2: ");
+        list2.print();
 
 
         
