@@ -18,6 +18,8 @@ public class Program {
         list.add(7);
         list.add(5);
         list.add(5);
+        
+        // LinkedList list2 = list; // Так копировать не будет!!!
 
         LinkedList list2 = list.copyList();
 
@@ -34,10 +36,10 @@ public class Program {
         // list.removeAll(5);
         int n = list.removeAll(5);
         list.print();
-        System.out.println(n);
+        System.out.println(n); // 4
         
         System.out.print("list2: ");
-        list2.print();
+        list2.print(); // [ 5 5 5 8 1 7 5 5 ] size: 8
 
 
         
