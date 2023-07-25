@@ -22,8 +22,8 @@ public class LinkedList { // Связанный список
         System.out.print("[ ");
         Node currentNode = root; // Начало
         while (currentNode != null){
-            System.out.print(currentNode.value + " "); // Сначало печатаю
-            currentNode = currentNode.next; // Потом перехожу к следующему элементу
+            System.out.print(currentNode.value + " "); // Сначало печатаю первый элемент
+            currentNode = currentNode.next; // Потом перехожу к следующемей ссылке на элемент.
         }
         System.out.println("] size: " + size);
     }

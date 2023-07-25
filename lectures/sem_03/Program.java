@@ -7,6 +7,7 @@ package lectures.sem_03;
 public class Program {
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
+        list.print();
 
         list.add(5);
         list.add(8);
