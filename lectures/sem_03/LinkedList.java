@@ -75,6 +75,10 @@ public class LinkedList { // Связанный список
         
     }
 
+    public void clear() { // Удаление списка
+        root = null;
+        size = 0;
+    }
 // Вспомогательные методы getNode и getValue, setValue, swap:
     private Node getNode(int index){ // Будет вытаскивать нужную Node по index
         if (root == null)
