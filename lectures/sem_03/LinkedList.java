@@ -75,9 +75,20 @@ public class LinkedList { // Связанный список
         
     }
 
-    public void clear() { // Удаление списка
+// Удаление списка
+    public void clear() { 
         root = null;
         size = 0;
+    }
+// Копирование списка
+    public LinkedList copyList() {  
+        LinkedList copyList = new LinkedList();
+        Node currentNode = root;
+        while (currentNode != null) {
+            copyList.add(currentNode.value);
+            currentNode = currentNode.next;
+        }
+        return copyList;
     }
 // Вспомогательные методы getNode и getValue, setValue, swap:
     private Node getNode(int index){ // Будет вытаскивать нужную Node по index
