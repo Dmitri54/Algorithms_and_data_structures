@@ -4,6 +4,8 @@
 
 package lectures.sem_03;
 
+import java.lang.reflect.Array;
+
 public class Program {
     public static void main(String[] args) {
         // LinkedList list = new LinkedList();
@@ -74,6 +76,11 @@ public class Program {
         list3.print(); // [ 5 World Privet GB 12 100 ] size: 6
         
 
+        // Array.sort(list3); // Так не работает, т.к. не понятно как сортировать.
+
+        list3.quickSort();
+        System.out.println("sorted list");
+        list3.print();
 
 
 // ----------------------------------------------------------------------------------------------------

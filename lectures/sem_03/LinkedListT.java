@@ -76,6 +76,32 @@ public class LinkedListT<T extends Comparable<T>> { // Связанный спи
         return prevSize - size;
         
     }
+// Сортировка
+    public void quickSort(){ // Это общий метод
+        quickSort(0, size - 1);
+    }
+
+    private void quickSort(int leftBorder, int rightBorder){ 
+        int leftMarker = leftBorder;
+        int rightMarker = rightBorder;
+        T pivot = this. getValue((leftMarker + rightMarker) / 2);
+        while (leftMarker <= rightMarker){
+            while (this.getValue(leftMarker).compareTo(pivot) < 0)
+                leftMarker++;
+            while (this.getValue(rightMarker).compareTo(pivot) > 0)
+                rightMarker--;
+            if (leftMarker <= rightMarker){
+                if (leftMarker < rightMarker)
+                    swap(leftMarker, rightMarker);
+                leftMarker++;
+                rightMarker--;
+            }
+        }
+        if (leftMarker < rightBorder)
+            quickSort(leftMarker, rightBorder);
+        if (leftBorder < rightMarker)
+            quickSort(leftBorder, rightMarker);            
+    }
 
 // Удаление списка
     public void clear() { 
