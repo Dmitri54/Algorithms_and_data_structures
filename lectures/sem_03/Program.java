@@ -5,6 +5,7 @@
 package lectures.sem_03;
 
 import java.lang.reflect.Array;
+import java.util.Random;
 
 public class Program {
     public static void main(String[] args) {
@@ -75,13 +76,40 @@ public class Program {
         list3.removeAll("Hello");
         list3.print(); // [ 5 World Privet GB 12 100 ] size: 6
         
-
+// ---------------------------------------------------------------------------------------------
         // Array.sort(list3); // Так не работает, т.к. не понятно как сортировать.
 
         list3.quickSort();
-        System.out.println("sorted list");
-        list3.print();
+        System.out.print("sorted list: ");
+        list3.print(); // sorted list: [ 100 12 5 GB Privet World ] size: 6
 
+        LinkedListT<String> list4 = new LinkedListT<>();
+
+        list4.addSorted("5"); // Сортировка при добавлении элемента
+        list4.addSorted("Hello");
+        list4.addSorted("Hello");
+        list4.addSorted("World");
+        list4.addSorted("Privet");
+        list4.addSorted("GB");
+
+        System.out.println();
+        System.out.print("list4: ");
+        list4.print();
+        list4.quickSort(); // метод quickSort() уже не нужен.
+        System.out.print("sorted list: "); 
+        list4.print(); 
+// --------------------------------------------------------------------------------------
+        LinkedListT<Integer> list5 = new LinkedListT<>();
+        for (int i = 0; i < 20; i++) {
+            list5.addSorted(new Random().nextInt(20));
+        }
+
+        System.out.println();
+        System.out.println("list5: ");
+        list5.print();
+        list5.quickSort();
+        System.out.println("sorted list: "); 
+        list5.print();
 
 // ----------------------------------------------------------------------------------------------------
         // Vector a = new Vector(2, 3, 4);

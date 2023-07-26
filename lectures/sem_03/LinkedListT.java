@@ -6,6 +6,7 @@ public class LinkedListT<T extends Comparable<T>> { // Связанный спи
     private Node root; 
     private int size; 
 
+// Добавление в конец.
     public void add(T value){ 
         if (root == null){ 
             root = new Node(value); 
@@ -19,7 +20,34 @@ public class LinkedListT<T extends Comparable<T>> { // Связанный спи
         currentNode.next = new Node(value); 
         size++;
     }
-
+// Добавление в нужное место списка.
+    public void addSorted(T value){
+        if (root == null){
+            root = new Node(value);
+            size = 1;
+            return;
+        }
+        if (root.value.compareTo(value) > 0){
+            Node newNode = new Node(value);
+            newNode.next = root;
+            root = newNode;
+            size++;
+            return;
+        }
+        Node currentNode = root;
+        while (currentNode.next != null){
+            if (currentNode.next.value.compareTo(value) > 0){
+                Node newNode = new Node(value);
+                newNode.next = currentNode.next;
+                currentNode.next = newNode;
+                size++;
+                return;
+            }
+            currentNode = currentNode.next;
+        }
+        currentNode.next = new Node(value);
+        size++;
+    }
 // Удаление по значению
     public boolean remove(T value){
         if (root == null) 
