@@ -107,7 +107,7 @@ public class LinkedList { // Связанный список
         Node value = this.getNode(index); // Записал значение Node найденную по index в переменную
         return value.value; // Нашел value по index.
 
-        // return this.getNote(index).value; // Так короче.
+        // return this.getNode(index).value; // Так короче.
     }
 
 // Вставка значения по index
@@ -154,9 +154,9 @@ public class LinkedList { // Связанный список
         int value; // Значение
         Node next; // Ссылка на следующее значение.
 
-        Node () { // Конструктор
+        Node (){} // Конструктор
 
-        }
+        
 
         Node (int value){ this.value = value;}
     }
