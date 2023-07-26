@@ -55,7 +55,25 @@ public class Program {
         System.out.print("list: ");
         list.print();
         LinkedListT<Integer> list2 = list.copyList();
+        // Теперь я могу указать люлой тип данных при создании связанного списка.
+        LinkedListT<String> list3 = new LinkedListT<>();
+
+        list3.add("5");
+        list3.add("Hello");
+        list3.add("Hello");
+        list3.add("World");
+        list3.add("Privet");
+        list3.add("GB");
+        list3.add("12");
+        list3.add("100");
         
+
+        System.out.print("list3: ");
+        list3.print(); // list3: [ 5 Hello Hello World Privet GB 12 100 ] size: 8
+        list3.removeAll("Hello");
+        list3.print(); // [ 5 World Privet GB 12 100 ] size: 6
+        
+
 
 
 // ----------------------------------------------------------------------------------------------------
