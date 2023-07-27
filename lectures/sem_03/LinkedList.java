@@ -150,6 +150,24 @@ public class LinkedList { // Связанный список
 
     public int size(){ return size;}
 
+    public void revert(){
+        if (root != null && root.next != null){
+            Node currentNode = root;
+            revert(root.next, root);
+            currentNode.next = null;
+            
+        }
+    }
+    
+    private void revert(Node currentNode, Node previousNode){ // Разворот для односвязанного списка
+        if (currentNode.next == null){
+            root = currentNode;
+        } else {
+            revert(currentNode.next, currentNode);
+        }
+        currentNode.next = previousNode;
+    }
+
     private class Node { // Класс Node (Ссылка на значение)
         int value; // Значение
         Node next; // Ссылка на следующее значение.
