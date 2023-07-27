@@ -201,6 +201,25 @@ public class LinkedListT<T extends Comparable<T>> { // Связанный спи
     }
 
     public int size(){return size;}
+    
+// Разворот списка
+    public void revert(){
+        if (root != null && root.next != null){
+            Node currentNode = root;
+            revert(root.next, root);
+            currentNode.next = null;
+            
+        }
+    }
+    
+    private void revert(Node currentNode, Node previousNode){ // Разворот для односвязанного списка
+        if (currentNode.next == null){
+            root = currentNode;
+        } else {
+            revert(currentNode.next, currentNode);
+        }
+        currentNode.next = previousNode;
+    }
 
     // public void test(T value) { // Объясняет для чего нужен класс Compare<>
     //     if (root.value.compareTo(value) > 0) {            
