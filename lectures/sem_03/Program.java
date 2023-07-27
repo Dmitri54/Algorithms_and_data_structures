@@ -111,6 +111,21 @@ public class Program {
         System.out.println("sorted list: "); 
         list5.print();
 
+// -------------------------------------------------------------------------------------------------
+// Д/з 
+        LinkedListT<Integer> list6 = new LinkedListT<>();
+        list6.add(5);
+        list6.add(4);
+        list6.add(3);
+        list6.add(2);
+        list6.add(1);
+        list6.add(0);
+
+        list6.print(); // [ 5 4 3 2 1 0 ] size: 6
+        list6.revert();
+        list6.print(); // [ 0 1 2 3 4 5 ] size: 6
+        
+
 // ----------------------------------------------------------------------------------------------------
         // Vector a = new Vector(2, 3, 4);
         // Vector b = new Vector(2, 9, 1);
