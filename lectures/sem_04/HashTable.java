@@ -1,7 +1,7 @@
 package lectures.sem_04;
 
 public class HashTable<K, V> {
-    private static final int DEFAULT_SIZE = 4;
+    private static final int DEFAULT_SIZE = 4; // Лучше сразу указать больше (500), чтобы не увеличивать часто.
     private static final double LOAD_FACTOR = 0.75;
     private int size;
     private Bucket<K, V>[] buckets;
@@ -58,7 +58,7 @@ public class HashTable<K, V> {
         }
     }
 
-    private void resize() {
+    private void resize() { // Изменение размера таблицы
         Bucket<K, V>[] old = buckets;
         buckets = new Bucket[old.length * 2];
         for (int i = 0; i < old.length; i++) {
