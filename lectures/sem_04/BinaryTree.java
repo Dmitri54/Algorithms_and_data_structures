@@ -21,6 +21,7 @@ public class BinaryTree<T extends Comparable<T>> {
         if (node.value.compareTo(value) > 0) { // Если значение Node больше чем значение, которое хочу добавить
             if (node.left == null) { // и Если слева нет значения, то
                 node.left = new Node(value); // Создаю новую Node
+                size++;
                 return node.left; // и возвращаю созданную Node.
             }
             return addNode(node.left, value); // Для продолжения повторно запуская метод addNode() от node.left
@@ -28,6 +29,7 @@ public class BinaryTree<T extends Comparable<T>> {
         }
         if (node.right == null) { // для правого значения.
             node.right = new Node(value);
+            size++;
             return node.right;
         }
         return addNode(node.right, value);
