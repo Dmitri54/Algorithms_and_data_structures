@@ -37,7 +37,7 @@ public class BinaryTree<T extends Comparable<T>> {
         }
         return addNode(node.right, value);
     }
- 
+
     enum Color {red, black}
 
     private class Node{
