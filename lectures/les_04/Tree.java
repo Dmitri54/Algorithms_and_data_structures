@@ -1,4 +1,4 @@
-package les_04;
+package lectures.les_04;
 
 import java.util.ArrayList;
 import java.util.List;

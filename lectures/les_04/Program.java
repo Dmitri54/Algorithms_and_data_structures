@@ -2,7 +2,7 @@
 // =============================================================
 
 
-package les_04;
+package lectures.les_04;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package les_04;
+package lectures.les_04;
 
 public class RedBlackTree { // Красно-черное дерево
 
