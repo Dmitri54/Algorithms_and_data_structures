@@ -11,6 +11,7 @@ public class BinaryTree<T extends Comparable<T>> {
     public boolean add(T value){ // Выделил метод отдельно, чтобы запускать его рекурсивно
         if(root == null){
             root = new Node(value);
+            root.color = Color.black; // root всегда будет цветом black.
             size = 1;
             return true;
         }
@@ -60,10 +61,40 @@ public class BinaryTree<T extends Comparable<T>> {
 
         Color color;
 
-        Node() { color = Color.red; } // Конструктор
+        Node() { color = Color.red; } // Конструктор. red - т.к. любая новая Node становиться red.
 
         Node (T value) { this.value = value; }
     }
+
+// Балансировка
+    private void colorSwap(Node node) {
+        node.right.color = Color.black;
+        node.left.color = Color.black;
+        node.color = Color.red; // Цвет родителя
+    }
+    
+
+    private Node rightSwap(Node node) {
+        Node rigth = node.right; // Сохраняю правую Node
+        Node between = rigth.left; // Сохраняю Node, которую перемещаю
+        rigth.left = node; // Меняю местами ссылки
+        node.right = between; 
+        rigth.color = node.color; // Сохраняю цвет с Node которая была выше
+        node.color = Color.red; // Присваиваю новый цвет
+        return rigth; // Возвращаю родителя.
+    }
+
+    private Node leftSwap(Node node) {
+        Node left = node.left;
+        Node between = left.right;
+        left.right = node; // Меняю указатели местами
+        node.left = between;
+        left.color = node.color; // Меняю цвет местами
+        node.color = Color.red;
+        return left; // Возвращаю нового наследника.
+
+    }
+
 
 //  Для вывода в консоль использую пять методов
     private class PrintNode {
