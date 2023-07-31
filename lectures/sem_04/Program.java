@@ -86,15 +86,20 @@ public class Program {
     public static void main(String[] args) {
         BinaryTree<Integer> tree = new BinaryTree<>();
 
-        tree.add(5);
-        tree.add(9);
-        tree.add(8);
-        tree.add(7);
-        tree.add(6);
+        // tree.add(5);
+        // tree.add(9);
+        // tree.add(8);
+        // tree.add(7);
+        // tree.add(6);
+
+        for (int i = 0; i < 20; i++){ // Добавление циклом
+            tree.add(new Random().nextInt(20));
+        }
         
         tree.print(); // Вижу дерево, не очень красиво, но все же. Пока без балансировки. root = 5
 
         // После добавления метода rebalance дерево перестроилось. root = 9
+        // В данном случа сработал leftSwap() и colorSwap().
 
         System.out.println(tree.contain(3));
 
