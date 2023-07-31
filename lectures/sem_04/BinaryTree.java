@@ -38,6 +38,19 @@ public class BinaryTree<T extends Comparable<T>> {
         return addNode(node.right, value);
     }
 
+    public boolean contain(T value) { // Метод ответит содержит ли массив искомый элемент.
+        Node currentNode = root;
+        while (currentNode != null) {
+            if (currentNode.value == value)
+                return true; // если нашел
+            if (currentNode.value.compareTo(value) > 0)
+                currentNode = currentNode.left; // если добавляемое значение меньше root
+            else
+                currentNode = currentNode.right;
+        }
+        return false;
+    }
+
     enum Color {red, black}
 
     private class Node{

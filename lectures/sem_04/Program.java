@@ -94,5 +94,9 @@ public class Program {
         
         tree.print(); // Вижу дерево, не очень красиво, но все же. Пока без балансировки.
 
+        System.out.println(tree.contain(3));
+
+        
+
     }
 }
