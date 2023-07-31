@@ -15,11 +15,10 @@ public class BinaryTree<T extends Comparable<T>> {
             size = 1;
             return true;
         }
-        return (addNode(root, value) != null);
-
+        return addNode(root, value) != null;
     }
 
-    public Node addNode(Node node, T value) {
+    private Node addNode(Node node, T value) {
         if (node.value.compareTo(value) == 0)
             return null;
         if (node.value.compareTo(value) > 0) { // Если значение Node больше чем значение, которое хочу добавить
@@ -28,15 +27,19 @@ public class BinaryTree<T extends Comparable<T>> {
                 size++;
                 return node.left; // и возвращаю созданную Node.
             }
-            return addNode(node.left, value); // Для продолжения повторно запуская метод addNode() от node.left
+            Node result = addNode(node.left, value); // Для продолжения повторно запуская метод addNode() от node.left
             // и он уже выполняется для нового значения.
+            node.left = rebalance(node.left); // Делаю балансировку!!!
+            return result;
         }
         if (node.right == null) { // для правого значения.
             node.right = new Node(value);
             size++;
             return node.right;
         }
-        return addNode(node.right, value);
+        Node result =  addNode(node.right, value);
+        node.right = rebalance(node.right);
+        return result;
     }
 
     public boolean contain(T value) { // Метод ответит содержит ли массив искомый элемент.
@@ -63,10 +66,38 @@ public class BinaryTree<T extends Comparable<T>> {
 
         Node() { color = Color.red; } // Конструктор. red - т.к. любая новая Node становиться red.
 
-        Node (T value) { this.value = value; }
+        Node (T value) { 
+            this.value = value;
+            color = Color.red;
+        }
     }
 
 // Балансировка
+
+    private Node rebalance(Node node) {
+        Node result = node;
+        boolean needRebalance = true;
+        while (needRebalance) {
+            needRebalance = false;
+            if (result.right != null && result.right.color == Color.red
+                    && (result.left == null || result.left.color == Color.black)){
+                needRebalance = true;
+                result = rightSwap(result); // Делаю балансировку в право
+            }
+            if (result.left != null && result.left.left != null
+                    && result.left.color == Color.red && result.left.left.color == Color.red){
+                needRebalance = true;
+                result = leftSwap(result);
+            }
+            if (result.left != null && result.right != null
+                    && result.left.color == Color.red && result.right.color == Color.red){
+                needRebalance = true;
+                colorSwap(result); // Делаю балансировку цвета
+            }
+        }
+        return result;
+    }
+
     private void colorSwap(Node node) {
         node.right.color = Color.black;
         node.left.color = Color.black;
@@ -92,7 +123,6 @@ public class BinaryTree<T extends Comparable<T>> {
         left.color = node.color; // Меняю цвет местами
         node.color = Color.red;
         return left; // Возвращаю нового наследника.
-
     }
 
 

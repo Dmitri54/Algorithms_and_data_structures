@@ -92,11 +92,13 @@ public class Program {
         tree.add(7);
         tree.add(6);
         
-        tree.print(); // Вижу дерево, не очень красиво, но все же. Пока без балансировки.
+        tree.print(); // Вижу дерево, не очень красиво, но все же. Пока без балансировки. root = 5
+
+        // После добавления метода rebalance дерево перестроилось. root = 9
 
         System.out.println(tree.contain(3));
 
-        
+
 
     }
 }
